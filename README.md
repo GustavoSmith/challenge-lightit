@@ -78,6 +78,9 @@ pnpm start
 
 # Linting
 pnpm lint
+
+# Formatting
+pnpm format
 ```
 
 ## Stack Tecnológico

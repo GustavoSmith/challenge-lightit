@@ -170,7 +170,7 @@ export const PatientCard = memo(function PatientCard({
                     href={patient.website}
                     target="_blank"
                     rel="noreferrer"
-                    className="text-grey-300 truncate text-sm font-medium transition-colors hover:cursor-pointer hover:text-purple-400 hover:underline"
+                    className="text-grey-300 text-sm font-medium break-all transition-colors hover:cursor-pointer hover:text-purple-400 hover:underline"
                   >
                     {patient.website}
                   </Link>
