@@ -1,36 +1,92 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Challenge Lightit - Gestión de Pacientes
+
+Aplicación frontend para gestionar información de pacientes, construida con Next.js 16, React 19, Tailwind CSS 4 y React Aria Components.
+
+## Características
+
+- **Listado de pacientes**: Visualización de pacientes en tarjetas con información básica
+- **Detalles expandibles**: Cada tarjeta puede expandirse para mostrar información completa
+- **Edición de pacientes**: Formulario modal para editar información de pacientes existentes
+- **Creación de pacientes**: Formulario para agregar nuevos pacientes a la lista
+- **Validación de formularios**: Validación en cliente con mensajes de error claros
+- **Notificaciones toast**: Feedback visual para operaciones exitosas y errores
+- **Diseño responsive**: Optimizado para dispositivos móviles, tablets y escritorio
+- **Modo oscuro**: Soporte para tema claro y oscuro
 
 ## Getting Started
 
-First, run the development server:
+### Prerequisitos
+
+- Node.js 18+
+- pnpm (recomendado) o npm/yarn
+
+### Instalación
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
+# Instalar dependencias
+pnpm install
+
+# Ejecutar servidor de desarrollo
 pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Abre [http://localhost:3000](http://localhost:3000) en tu navegador para ver la aplicación.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### Estructura del Proyecto
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```
+app/
+├── layout.tsx              # Layout raíz con React Query Provider
+├── page.tsx                # Página principal de gestión de pacientes
+└── patients/
+    ├── components/          # Componentes de UI
+    │   ├── patient-card.tsx
+    │   ├── patient-details.tsx
+    │   ├── patient-form.tsx
+    │   ├── patients-header.tsx
+    │   └── toast-container.tsx
+    ├── hooks/
+    │   └── use-patients.ts # Hook React Query para gestión de pacientes
+    └── types.ts            # Tipos TypeScript
 
-## Learn More
+lib/
+└── api/
+    └── patients.ts         # Cliente de API para obtener pacientes
 
-To learn more about Next.js, take a look at the following resources:
+tests/
+└── ui/                     # Tests de UI (pendiente)
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### API
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+La aplicación consume datos de la API de MockAPI:
 
-## Deploy on Vercel
+- **Endpoint**: `https://63bedcf7f5cfc0949b634fc8.mockapi.io/users`
+- **Nota**: Los cambios (crear/editar) se mantienen solo en la sesión actual y no se persisten en el servidor
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Scripts Disponibles
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+```bash
+# Desarrollo
+pnpm dev
+
+# Build de producción
+pnpm build
+
+# Iniciar servidor de producción
+pnpm start
+
+# Linting
+pnpm lint
+```
+
+## Stack Tecnológico
+
+- **Next.js 16** - Framework React con App Router
+- **React 19** - Biblioteca UI
+- **TypeScript 5** - Tipado estático
+- **Tailwind CSS 4** - Estilos utility-first
+- **React Aria Components** - Componentes accesibles
+- **React Query (@tanstack/react-query)** - Gestión de estado del servidor y caché
+- **date-fns** - Formateo de fechas
+- **Heroicons** - Iconos SVG
